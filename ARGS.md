@@ -7,13 +7,13 @@ There are 4 different options for command line arguments: main message, scale, m
 ### Main Message
 
 ```
-./bin/activate_linux (message)
+./bin/activate_redhat (message)
 ```
 
 ### Scaling
 
 ```
-./bin/activate_linux (scale)  
+./bin/activate_redhat (scale)  
 ```
 
 note that scale is a percent represented as a floating point number, 1 being 100%, 2 being 200%, and 0.5 being 50%
@@ -21,11 +21,11 @@ note that scale is a percent represented as a floating point number, 1 being 100
 ### Main and secondary message
 
 ```
-./bin/activate_linux (main) (secondary)
+./bin/activate_redhat (main) (secondary)
 ```
 
 # All 3 options
 
 ```
-./bin/activate_linux (main) (secondary) (scale)
+./bin/activate_redhat (main) (secondary) (scale)
 ```
