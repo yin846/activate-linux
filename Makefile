@@ -1,4 +1,4 @@
-CC       = clang
+CC       = gcc
 SOURCES  = $(wildcard *.c)
 TARGETS  = activate_linux
 
