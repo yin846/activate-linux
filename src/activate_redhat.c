@@ -14,11 +14,11 @@ void draw(cairo_t *cr, char *title, char *subtitle, float scale) {
     cairo_set_source_rgba(cr, 1.0, 1.0, 1.0, 0.35);
 
     cairo_set_font_size(cr, 24*scale);
-    cairo_move_to(cr, 20, 30*scale);
+    cairo_move_to(cr, 1, 30*scale);
     cairo_show_text(cr, title);
 
     cairo_set_font_size(cr, 16*scale);
-    cairo_move_to(cr, 20, 55*scale);
+    cairo_move_to(cr, 1, 55*scale);
     cairo_show_text(cr, subtitle);
 }
 
@@ -38,21 +38,21 @@ int main(int argc, char *argv[]) {
 
     char *title, *subtitle;
 
-    int overlay_width = 340;
+    int overlay_width = 380;
     int overlay_height = 120;
     float scale = 1.0f;
 
     switch (argc) {
 	case (1):
-            title = "Activate RedHat Enterprise Linux";
-            subtitle = "Go to Settings to Activate RHEL.";
+            title = "Activate RedHat Linux";
+            subtitle = "Run subscription-manager to Activate RHEL.";
 	    break;
 
 	case (2):
         if(atof(argv[1]) != 0) {
             scale = atof(argv[1]);
-                title = "Activate RedHat Enterprise Linux";
-                subtitle = "Go to Settings to Activate RHEL.";
+                title = "Activate RedHat Linux";
+                subtitle = "Run subscription-manager to Activate RHEL.";
         }
         else {
             title = argv[1];
