@@ -12,11 +12,11 @@
 
 void draw(cairo_t *cr, char *title, char *subtitle, float scale) {
     cairo_set_source_rgba(cr, 1.0, 1.0, 1.0, 0.35);
-    
+
     cairo_set_font_size(cr, 24*scale);
     cairo_move_to(cr, 20, 30*scale);
-    cairo_show_text(cr, title); 
-    
+    cairo_show_text(cr, title);
+
     cairo_set_font_size(cr, 16*scale);
     cairo_move_to(cr, 20, 55*scale);
     cairo_show_text(cr, subtitle);
@@ -44,25 +44,15 @@ int main(int argc, char *argv[]) {
 
     switch (argc) {
 	case (1):
-        #ifdef __APPLE__
-            title = "Activate macOS";
-            subtitle = "Go to Settings to activate macOS.";
-        #else
             title = "Activate RedHat Enterprise Linux";
             subtitle = "Go to Settings to Activate RHEL.";
-        #endif
 	    break;
 
 	case (2):
         if(atof(argv[1]) != 0) {
             scale = atof(argv[1]);
-            #ifdef __APPLE__
-                title = "Activate MacOS";
-                subtitle = "Go to Settings to activate MacOS";
-            #else
                 title = "Activate RedHat Enterprise Linux";
                 subtitle = "Go to Settings to Activate RHEL.";
-            #endif
         }
         else {
             title = argv[1];
@@ -85,20 +75,15 @@ int main(int argc, char *argv[]) {
 	default:
 	    printf("More than needed arguments have been passed. This program only supports at most 3 arguments.\n");
 	    return 1;
-    } 
+    }
 
     XSetWindowAttributes attrs;
     attrs.override_redirect = 1;
 
     XVisualInfo vinfo;
 
-    // MacOS doesnt support 32 bit color through XQuartz, massive hack
-    #ifdef __APPLE__
-        int colorDepth = 24;
-    #else
-        int colorDepth = 32;
-    #endif
-    
+    int colorDepth = 32;
+
     if (!XMatchVisualInfo(d, default_screen, colorDepth, TrueColor, &vinfo)) {
         printf("No visual found supporting 32 bit color, terminating\n");
         exit(EXIT_FAILURE);
@@ -152,7 +137,7 @@ int main(int argc, char *argv[]) {
     XEvent event;
     while(1) {
         XNextEvent(d, &event);
-    }  
+    }
 
     for (int i = 0; i < num_entries; i++) {
         XUnmapWindow(d, overlay[i]);
