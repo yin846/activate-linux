@@ -5,11 +5,8 @@ TARGETS  = activate_redhat
 RM = rm
 name := $(shell uname -s)
 
-# Linux specific flags
-ifeq ($(name),Linux)
-    BINARY  = activate_redhat
-	CFLAGS  = -lX11 -lXfixes -lXinerama -lcairo -I/usr/include/cairo
-endif
+BINARY  = activate_redhat
+CFLAGS  = -lX11 -lXfixes -lXinerama -lcairo -I/usr/include/cairo
 
 .PHONY: all clean test
 
