@@ -1,13 +1,13 @@
 CC       = gcc
 SOURCES  = $(wildcard *.c)
-TARGETS  = activate_linux
+TARGETS  = activate_redhat
 
 RM = rm
 name := $(shell uname -s)
 
 # Linux specific flags
 ifeq ($(name),Linux)
-    BINARY  = activate_linux
+    BINARY  = activate_redhat
 	CFLAGS  = -lX11 -lXfixes -lXinerama -lcairo -I/usr/include/cairo
 endif
 
@@ -21,15 +21,15 @@ endif
 
 all: $(TARGETS)
 
-activate_linux: 
+activate_redhat:
 	rm -f -r bin
 	mkdir bin
-	$(CC) src/activate_linux.c -o bin/$(BINARY) $(CFLAGS)
+	$(CC) src/activate_redhat.c -o bin/$(BINARY) $(CFLAGS)
 
 # clean
 clean:
 	$(RM) bin/$(BINARY)
-	
+
 # build and run
 test: test $(TARGETS)
 	./bin/$(BINARY)

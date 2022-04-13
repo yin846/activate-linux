@@ -48,8 +48,8 @@ int main(int argc, char *argv[]) {
             title = "Activate macOS";
             subtitle = "Go to Settings to activate macOS.";
         #else
-            title = "Activate Linux";
-            subtitle = "Go to Settings to activate Linux.";
+            title = "Activate RedHat Enterprise Linux";
+            subtitle = "Go to Settings to Activate RHEL.";
         #endif
 	    break;
 
@@ -60,8 +60,8 @@ int main(int argc, char *argv[]) {
                 title = "Activate MacOS";
                 subtitle = "Go to Settings to activate MacOS";
             #else
-                title = "Activate Linux";
-                subtitle = "Go to Settings to activate Linux.";
+                title = "Activate RedHat Enterprise Linux";
+                subtitle = "Go to Settings to Activate RHEL.";
             #endif
         }
         else {
